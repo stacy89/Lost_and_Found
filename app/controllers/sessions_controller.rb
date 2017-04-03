@@ -3,7 +3,7 @@ get '/sessions/new' do
 end
 
 post '/sessions' do 
-	@user = User.find_by(email: params[:email])
+	@user = User.find_by(username: params[:username])
 	if @user && @user.password == params[:password]
 		session[:id] = @user.id
 		redirect "/users/#{@user.id}"
@@ -13,7 +13,11 @@ post '/sessions' do
 	end
 end
 
-delete '/sessions/:id' do 
+# get '/sessions/:id' do 
+
+# end
+
+delete '/sessions' do 
 	session[:id] = nil
 	redirect '/sessions/new'
 end

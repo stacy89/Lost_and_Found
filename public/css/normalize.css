@@ -130,7 +130,10 @@ dfn {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 2em;
+  width: 300px;
+  border: 10px solid black;
+  padding: 25px;
 }
 
 /**

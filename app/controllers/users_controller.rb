@@ -23,6 +23,7 @@ end
 
 get '/users/:id' do 
 	@user = User.find(params[:id])
-	redirect '/session/new' unless logged_in
-	erb :'users/show'
+	redirect '/sessions/new' unless logged_in?
+	erb :'sessions/show'
 end
+#
