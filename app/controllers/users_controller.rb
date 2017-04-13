@@ -26,4 +26,3 @@ get '/users/:id' do
 	redirect '/sessions/new' unless logged_in?
 	erb :'sessions/show'
 end
-#

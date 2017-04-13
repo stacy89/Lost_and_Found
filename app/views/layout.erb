@@ -18,6 +18,19 @@
   <title></title>
 </head>
 <body>
+
+<ul>
+<% if current_user %>
+  <li><%= erb :'_logout', layout:false %>
+  </li>
+  <% else %>
+  <li><a href="/" class="round yellow">Home<span class="round">Going home?</span></a></li>
+  <li><a href="/sessions/new" class="round green">Login<span class="round">That is, if you already have an account.</span></a></li>
+  <li><a href="/users/new" class="round red">Sign Up<span class="round">But only if you really, really want to. </span></a></li>
+  <% end %>
+</ul> 
+
+ 
   <%= yield %>
 </body>
 </html>
