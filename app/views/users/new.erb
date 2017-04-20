@@ -1,14 +1,25 @@
-<h2>Sign up:</h2>
-<form action="/users" method="POST">
+<h2>Sign up:</h2><br><br>
+<form id="form-center" action="/users" method="POST">
 
 	<label>Username:</label>
-	<input type="text" name="user[username]">
+	<input id="form-center" type="text" name="user[username]"><br><br>
+	
+	<label>First name:</label>
+	<input id="form-center" type="text" name="user[first_name]"><br><br>
+	
+	<label>Last name:</label>
+	<input id="form-center" type="text" name="user[last_name]"><br><br>
+	
+	<label>Location:</label>
+	<input id="form-center" type="text" name="user[location]"><br><br>
 	
 	<label>Email:</label>
-	<input type="text" name="user[email]">
+	<input id="form-center" type="text" name="user[email]"><br><br>
 
 	<label>Password:</label>
-	<input type="password" name="user[password]">
+	<input id="form-center" type="password" name="user[password]"><br><br>
 
-	<input type="submit" value="submit">
+	<input class="btn-style" type="submit" value="submit">
 </form>
+
+<%= erb :'_errors', locals: {errors: @errors }%>
