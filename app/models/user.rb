@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
 
   # before_save :check_input_password
 
-  validates :username, :first_name, :last_name, :location, :email, :password, {presence: true}
-  validates :username, {uniqueness: true}
+  validates :first_name, :last_name, :location, :password, {presence: true}
+  validates :username, :email, {uniqueness: true, presence: true}
   
 
   include BCrypt 
