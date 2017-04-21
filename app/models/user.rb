@@ -3,9 +3,9 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   has_many :favorite
 
-  before_save :check_input_password
+  # before_save :check_input_password
 
-  validates :username, :first_name, :last_name, :location, :email, {presence: true}
+  validates :username, :first_name, :last_name, :location, :email, :password, {presence: true}
   validates :username, {uniqueness: true}
   
 
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     self.password == password
   end
 
-  def check_input_password
-    return false if @input_password == ""
-  end
+  # def check_input_password
+  #   return false if @input_password == ""
+  # end
 end
