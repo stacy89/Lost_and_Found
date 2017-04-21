@@ -1,7 +1,14 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-	has_many :favorite
+  has_many :favorite
+
+  before_save :check_input_password
+
+  validates :username, :first_name, :last_name, :location, :email, {presence: true}
+  validates :username, {uniqueness: true}
+  
+
   include BCrypt 
 
 	def password
@@ -15,5 +22,9 @@ class User < ActiveRecord::Base
 
   def authenticate(password)
     self.password == password
+  end
+
+  def check_input_password
+    return false if @input_password == ""
   end
 end
