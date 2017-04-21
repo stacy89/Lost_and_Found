@@ -8,12 +8,7 @@ end
 
 post '/sessions' do 
 	@user = User.find_by(username: params[:username])
-	p '*' * 20
-	p params[:username]
-	p '*' * 20
-	p params[:password]
-	p '*' * 20
-	p @user
+	
 	if @user && @user.password == params[:password]
 		login(@user)
 		redirect "/users/#{@user.id}"

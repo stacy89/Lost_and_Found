@@ -3,7 +3,7 @@ get '/' do
 end 
 
 get '/users' do 
-	# @user = User.all # Do I really need this?
+	# @user = User.all # Do I really need this? 
 	erb :'users/index'
 end
 

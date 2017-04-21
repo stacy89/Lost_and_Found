@@ -10,3 +10,6 @@ post 'venues' do
 		@errors = @venue.errors.full_messages
 	end
 end
+
+# need to add more routes so a user can be linked to a venue
+# venue sign up form and login form

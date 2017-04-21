@@ -31,7 +31,7 @@ User.all.each do |user|
 		user_id: User.all.sample)
 	end
 end
-
+# How in the world?
 	Venue.all.each do |venue|
 	50.times do 
 	Favorite.create( 
