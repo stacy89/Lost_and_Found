@@ -190,6 +190,9 @@ img {
 	#form-center {
 	  display: inline-block;
 	  float: center;
+	  border-style: dotted;
+	  border-color: black;
+	  padding: 18px;
 	}
 
 	.btn-style {
@@ -211,6 +214,10 @@ img {
 		background : linear-gradient(top, #ffffff 0%, #f1f1f1 49%, #e1e1e1 51%, #f6f6f6 100%);
 		filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
 
+	}
+
+	.errors {
+		color: red;
 	}
 
 

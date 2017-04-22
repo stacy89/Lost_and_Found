@@ -1,7 +1,6 @@
+<div class="errors"><%= erb :'_errors' %><br><br></div>
 <form action="/sessions" method="POST">
 	<input type="text" name="username" placeholder="Username:">
 	<input type="password" name="password" placeholder="Password:">
 	<input id="form-button" type="submit" value="Login">
 </form>
-
-<%= erb :'_errors', locals: {errors: @errors} %>

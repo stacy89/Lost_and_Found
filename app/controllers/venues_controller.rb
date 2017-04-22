@@ -8,8 +8,7 @@ post 'venues' do
 		redirect "/venues/#{@venue.id}"
 	else
 		@errors = @venue.errors.full_messages
+		erb :'venues/new'
 	end
 end
 
-# need to add more routes so a user can be linked to a venue
-# venue sign up form and login form

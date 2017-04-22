@@ -3,7 +3,7 @@ class Venue < ActiveRecord::Base
 	has_many :favorite
 
 	validates :username, :email, {presence: true, uniqueness: true}
-	validates :first_name, :last_name, :name, :location, :password, {presence: true}
+	validates :location, :password, {presence: true}
 
 	include BCrypt 
 
@@ -20,3 +20,5 @@ class Venue < ActiveRecord::Base
     self.password == password
   end
 end
+
+# is it possible or even good practice to create a partial for bcrypt?
