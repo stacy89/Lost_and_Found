@@ -1,1 +1,8 @@
+<% if @user  %>
 <h2>Welcome, <%= @user.username %></h2>
+<% end %>
+<% if @venue %>
+<h2>Welcome, <%= @venue.username %></h2>
+<%= image_tag @venue.image.url(:medium) %> 
+<% end %>
+

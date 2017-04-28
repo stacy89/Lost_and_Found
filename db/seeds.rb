@@ -17,8 +17,6 @@ end
 until Venue.count > 50 do 
 	Venue.create(
 		username: Faker::Internet.user_name, 
-		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last_name,
 		name: Faker::Hipster.word,
 		location: "San Francisco",
 		email: Faker::Internet.email,
@@ -26,15 +24,7 @@ until Venue.count > 50 do
 end 
 
 User.all.each do |user|
-	10.times do 
-	Favorite.create(
-		user_id: User.all.sample)
-	end
-end
-
-	Venue.all.each do |venue|
-	50.times do 
-	Favorite.create( 
-		venue_id: Venue.all.sample)
-	end
+  5.times do
+    Favorite.create(user_id: user.id, venue_id: Venue.all.sample.id)
+  end
 end
