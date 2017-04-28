@@ -47,7 +47,7 @@ GEM
     multi_json (1.12.1)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
-    paperclip (5.1.0)
+    paperclip (5.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
@@ -114,7 +114,7 @@ DEPENDENCIES
   capybara
   factory_girl
   faker
-  paperclip
+  paperclip (~> 5.0.0)
   pg
   pry-byebug
   rack-test

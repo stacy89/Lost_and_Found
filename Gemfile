@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # PostgreSQL driver
 gem 'pg'
 gem 'bcrypt'
-gem 'paperclip'
+gem 'paperclip', "~> 5.0.0"
 
 # Sinatra driver
 gem 'sinatra', '~> 1.0'
