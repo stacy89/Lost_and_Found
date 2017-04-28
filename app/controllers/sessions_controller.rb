@@ -22,6 +22,6 @@ post '/sessions' do
 end
 
 delete '/sessions' do 
-	logout
+	user_logout || venue_logout
 	redirect '/'
 end

@@ -4,7 +4,7 @@
 // // When the login button is clicked the login form should
 // // pop up under the button itself instead of redirecting to the login page
 // var buttonListner = function() {
-// 	$('#form-button').on('click', function(event) {
+// 	$('#round-login').on('click', function(event) {
 // 		event.preventDefault();
 
 // 		var $loginButton = $(this);
@@ -13,10 +13,10 @@
 // 			url: $loginButton.attr('action'),
 // 			type: $loginButton.attr('method')
 // 		});
-// 		// need to figure out what class/id I should apppend when the button is clicked
+		
 // 		ajaxRequest.done(function(response) {
 // 			console.log(response);
-// 			$('ul').append('#login-form');
+// 			$('.login-form').toggle();
 // 		});
 
 // 		ajaxRequest.fail(function(response) {
