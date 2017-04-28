@@ -1,6 +1,8 @@
-<div class="errors"><%= erb :'_errors' %><br><br></div>
+
+<div id="login-form" class="errors"><%= erb :'_errors' %><br><br>
 <form action="/sessions" method="POST">
 	<input type="text" name="username" placeholder="Username:">
 	<input type="password" name="password" placeholder="Password:">
-	<input id="form-button" type="submit" value="Login">
+	<input type="submit" value="Login">
 </form>
+</div>
