@@ -3,7 +3,12 @@ get '/venues/_new' do
 end 
 
 post '/venues' do 
+	p "8" * 50
+	p params
+	p "8" * 50
 	@venue = Venue.new(params[:venue])
+	@venue.update_attributes(params[:image])
+	
 	if @venue.save
 		redirect "/sessions/new"
 	else
