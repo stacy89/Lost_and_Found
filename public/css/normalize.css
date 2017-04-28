@@ -18,6 +18,7 @@ html {
 
 body {
   margin: 0;
+  background-color: gray;
 }
 
 /* HTML5 display definitions
@@ -120,7 +121,7 @@ strong {
  */
 
 dfn {
-  font-style: italic;
+  font-style: 0001;
 }
 
 /**

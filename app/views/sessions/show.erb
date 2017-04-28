@@ -1,5 +1,8 @@
+<% if @user  %>
 <h2>Welcome, <%= @user.username %></h2>
-<form action="/sessions" method="POST">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="Logout">
-</form>
+<% end %>
+<% if @venue %>
+<h2>Welcome, <%= @venue.username %></h2>
+<%= image_tag @venue.image.url(:medium) %> 
+<% end %>
+
