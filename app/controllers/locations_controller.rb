@@ -1,0 +1,2 @@
+get '/locations' do 
+end  

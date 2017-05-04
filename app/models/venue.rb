@@ -1,15 +1,10 @@
 require 'bcrypt'
-require 'paperclip'
 
 class Venue < ActiveRecord::Base
-	include Paperclip::Glue
-  has_many :favorite
+  has_many :favorites
 
 	validates :username, :email, {presence: true, uniqueness: true}
 	validates :location, :password, {presence: true}
-
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
-  validates_attachment_content_type :image, content_type: ["image/jpeg", "image/gif", "image/png"] 
 
 	include BCrypt 
 

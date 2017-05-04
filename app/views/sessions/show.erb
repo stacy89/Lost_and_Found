@@ -1,8 +1,38 @@
 <% if @user  %>
-<h2>Welcome, <%= @user.username %></h2>
+<h2>Welcome, <%= @user.username %></h2><br>
+<h3>Search:</h3>
+<%= erb :'_search_box' %>
+<form action="/users" method="post">
+	<input type="hidden" name="user[id]" value="<%= @user.id %>">
+  <input type="text" list="location">
+</form>
+
+	<% if @user.favorites.length > 0 %>
+		<img src="<%= @filename %>" />
+		<%= @user.favorites[0].venue.name %><br><br>
+		<img src="<%= @filename %>" />
+		<%= @user.favorites[1].venue.name %><br><br>
+		<img src="<%= @filename %>" />
+		<%= @user.favorites[2].venue.name %><br><br>
+		<img src="<%= @filename %>" />
+		<%= @user.favorites[3].venue.name %><br><br>
+		<img src="<%= @filename %>" />
+		<%= @user.favorites[4].venue.name %><br><br>
+	<% end %>
 <% end %>
+
 <% if @venue %>
-<h2>Welcome, <%= @venue.username %></h2>
-<%= @venue.image.url(:medium) %> 
+<h2>Welcome, <%= @venue.username %></h2><br>
+<h3>Search:</h3>
+<%= erb :'_search_box' %>
+<form action="/venues" method="post">
+	<input type="hidden" name="venue[id]" value="<%= @venue.id %>">
+  <input type="text" list="location">
+</form>
+
+<img src="<%= @filename %>" />
+
+	<%= @venue.name %><br><br>
+	<%= @venue.image.url(:medium) %> 
 <% end %>
 

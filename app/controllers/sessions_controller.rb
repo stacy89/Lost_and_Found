@@ -1,5 +1,4 @@
 get '/sessions/new' do 
-	p '*' * 1000
 	if request.xhr?
 		erb :'sessions/new', layout: false 
 	else
@@ -26,3 +25,4 @@ delete '/sessions' do
 	user_logout || venue_logout
 	redirect '/'
 end
+

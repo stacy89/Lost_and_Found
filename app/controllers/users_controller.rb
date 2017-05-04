@@ -3,7 +3,6 @@ get '/' do
 end 
 
 get '/users' do 
-	# @user = User.all 
 	erb :'users/index'
 end
 
@@ -13,8 +12,9 @@ end
 
 post '/users' do 
 	@user = User.new(params[:user])
+
 	if @user.save 
-		redirect "/sessions/new"
+		redirect '/sessions/new'
 	else
 		@errors = @user.errors.full_messages
 		erb :'users/new'
@@ -27,8 +27,4 @@ get '/users/:id' do
 	erb :'sessions/show'
 end
 
-#add delete/edit route to edit favorites page but only when user is logined in
 
-#route to up date profile page
-
-#paperclip to allow user to upload profile image
