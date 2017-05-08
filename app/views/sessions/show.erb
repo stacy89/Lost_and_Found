@@ -1,38 +1,92 @@
 <% if @user  %>
 <h2>Welcome, <%= @user.username %></h2><br>
 <h3>Search:</h3>
-<%= erb :'_search_box' %>
-<form action="/users" method="post">
+<%= erb :'locations/_new' %>
+<form action="/locations" method="post">
 	<input type="hidden" name="user[id]" value="<%= @user.id %>">
-  <input type="text" list="location">
-</form>
+  <input type="text" list="location" name="location">
+</form><br><br>
 
 	<% if @user.favorites.length > 0 %>
-		<img src="<%= @filename %>" />
-		<%= @user.favorites[0].venue.name %><br><br>
-		<img src="<%= @filename %>" />
-		<%= @user.favorites[1].venue.name %><br><br>
-		<img src="<%= @filename %>" />
-		<%= @user.favorites[2].venue.name %><br><br>
-		<img src="<%= @filename %>" />
-		<%= @user.favorites[3].venue.name %><br><br>
-		<img src="<%= @filename %>" />
-		<%= @user.favorites[4].venue.name %><br><br>
+		
+		<a href="/venues/<%= @user.favorites[0].venue.id %>"><%= @user.favorites[0].venue.name %><br><br></a>
+		
+		<a href="/venues/<%= @user.favorites[1].venue.id %>"><%= @user.favorites[1].venue.name %><br><br></a>
+		
+		<a href="/venues/<%= @user.favorites[2].venue.id %>"><%= @user.favorites[2].venue.name %><br><br></a>
+		
+		<a href="/venues/<%= @user.favorites[3].venue.id %>"><%= @user.favorites[3].venue.name %><br><br></a>
+		
+		<a href="/venues/<%= @user.favorites[4].venue.id %>"><%= @user.favorites[4].venue.name %><br><br></a>
 	<% end %>
 <% end %>
 
 <% if @venue %>
-<h2>Welcome, <%= @venue.username %></h2><br>
-<h3>Search:</h3>
-<%= erb :'_search_box' %>
-<form action="/venues" method="post">
-	<input type="hidden" name="venue[id]" value="<%= @venue.id %>">
-  <input type="text" list="location">
-</form>
+	<h2> <%= @venue.name %></h2><br>
+	<h3>Search:</h3>
+	<%= erb :'locations/_new' %>
+	<form action="/locations" method="post">
+		<input type="hidden" name="venue[id]" value="<%= @venue.id %>">
+	  <input type="text" list="location" name="location">
+	</form><br><br>
+	<div id="googleMap" style="width:50%;height:400px;"></div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["SECRET_KEY"] %>"></script>	
 
-<img src="<%= @filename %>" />
+	<script>
+	var ships = [[37.76993, -122.42228],[37.773972, -122.431297]]
 
-	<%= @venue.name %><br><br>
-	<%= @venue.image.url(:medium) %> 
+	var map; 
+	var marker = [];
+	var info = [];
+
+	function myMap() {
+		var myLatlng = new google.maps.LatLng(37.773972, -122.431297);
+		var mapProp = {
+	    center: myLatlng,
+	    zoom:13
+	   }
+
+		var map = new google.maps.Map(
+			document.getElementById("googleMap"),mapProp);
+		}
+
+	function createMarker(lat, lon, html) {
+	 	var marker = new google.maps.Marker({
+	          position: new google.maps.LatLng(lat, lon),
+	          map: map,
+	          title: html
+	        });
+
+	 	marker['info'] = new google.maps.InfoWindow({
+	          content: html
+	        });
+
+	 	google.maps.event.addListener(marker, 'mouseover', function() {
+	        this['info'].open(map, this);
+	    });
+    // marker.push(marker);
+	};
+
+	function processShips(ships) {
+	    for (var i = 0; i < ships.length; i++) {
+	        createMarker(ships[i][0], ships[i][1], '<p> 199 Valencia St, San Francisco, CA 94103</p>');
+			}
+		}
+
+	function load(ships) {
+	    myMap();
+	    processShips(ships);
+	}
+
+	function gotoPoint(myPoint){
+	    map.setCenter(new google.maps.LatLng(marker[myPoint-1].position.lat(), marker[myPoint-1].position.lng()));
+	    marker[myPoint-1]['info'].open(map, marker[myPoint-1]);
+	}
+	
+	window.onload = load(ships);
+
+	</script>
+
 <% end %>
+
 

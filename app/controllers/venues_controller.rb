@@ -15,7 +15,7 @@ end
 
 get '/venues/:id' do 
 	@venue = Venue.find(params[:id])
-	redirect '/sessions/new' unless venue_logged_in?
+	redirect '/sessions/new' unless venue_logged_in? || user_logged_in?
 	erb :'sessions/show'
 end
 

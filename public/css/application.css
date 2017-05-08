@@ -220,7 +220,15 @@ img {
 		color: red;
 	}
 
+	#googleMap {
+		display: inline-block;
+	  float: center;
+	  padding: 18px;
+	}
 
+	#users-links {
+		float: left;
+	}
 
 
 
