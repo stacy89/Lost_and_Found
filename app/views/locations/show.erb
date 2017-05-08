@@ -1,0 +1,13 @@
+<div >
+<h3>Users:</h3><br>
+	<% @users.each do |user|%>
+		<a href="/users/<%= user.id %>"><%= user.username %></a><br><br>
+	<% end %>
+</div><br><br>
+
+<div id="venues-links">
+<h3>Venues:</h3><br>
+	<% @venues.each do |venue|%>
+		<a href="/venues/<%= venue.id %>"><%= venue.name %></a><br><br>
+	<% end %>
+</div>	

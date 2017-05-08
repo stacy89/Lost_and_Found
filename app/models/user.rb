@@ -1,15 +1,10 @@
 require 'bcrypt'
-require 'paperclip'
 
 class User < ActiveRecord::Base
-  include Paperclip::Glue
-  has_many :favorite
+  has_many :favorites
 
   validates :first_name, :last_name, :location, :password, {presence: true}
   validates :username, :email, {uniqueness: true, presence: true}
-
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   
   include BCrypt 
 

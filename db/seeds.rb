@@ -26,5 +26,5 @@ end
 User.all.each do |user|
   5.times do
     Favorite.create(user_id: user.id, venue_id: Venue.all.sample.id)
-  end
+  end 
 end

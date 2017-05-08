@@ -1,9 +1,9 @@
 get '/sessions/new' do 
-	# if request.xhr?
-	# 	erb :'sessions/new', layout: false 
-	# else
+	if request.xhr?
+		erb :'sessions/new', layout: false 
+	else
 		erb :'sessions/new'
-	# end
+	end
 end
 
 post '/sessions' do 
@@ -25,3 +25,4 @@ delete '/sessions' do
 	user_logout || venue_logout
 	redirect '/'
 end
+

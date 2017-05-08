@@ -32,6 +32,7 @@ GEM
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
     diff-lcs (1.3)
+    dotenv (2.2.1)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     faker (1.7.3)
@@ -112,6 +113,7 @@ DEPENDENCIES
   activesupport (~> 4.2.0)
   bcrypt
   capybara
+  dotenv
   factory_girl
   faker
   paperclip (~> 5.0.0)
